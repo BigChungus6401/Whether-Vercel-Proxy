@@ -2,7 +2,7 @@
 export default async function handler(req, res) {
   try {
     const response = await fetch(
-      "https://www.ncei.noaa.gov/cdo-web/api/v2/datasets",
+      "https://www.ncei.noaa.gov/cdo-web/api/v2/",
       {
         headers: {
           token: process.env.NOAA_TOKEN
