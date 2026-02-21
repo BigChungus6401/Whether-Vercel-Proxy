@@ -16,7 +16,13 @@ export default async function handler(req, res) {
     }
   });
 
-  const data = await response.text();//.json();
+  const contentType = response.headers.get("content-type");
+  let data;
+  if (contentType && contentType.includes("application/json")) {
+    data = await response.json();
+  } else {
+    data = await response.text();
+  }
 
   res.setHeader("Access-Control-Allow-Origin", "*");
   //res.status(200).json(data);
